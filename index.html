@@ -9729,6 +9729,14 @@
   "hints": {
     "easy": [
       "Basic, API Key, and OAuth 2.0 are the recognized custom connector auth types. Possibly Azure AD, which is a form of OAuth 2.0. Typically no auth is also an option. This question specifically says three. Basic, API Key, and OAuth 2.0 are the big three."
+    ],
+    "medium": [
+      "Azure AD-based authentication is a type of OAuth 2.0 flow, so 'Generic OAuth 2.0' can handle that scenario.",
+      "API key approaches often involve adding a header or query parameter. If the service documents an API key, you can choose the 'API Key' auth method in the custom connector wizard."
+    ],
+    "hard": [
+      "OpenID Connect (OIDC) is not listed as a built-in method, though some services that mention OIDC might still use a variant of OAuth 2.0 for authentication.",
+      "Pass-through authentication is not supported for custom connectors: your flow or app must present valid credentials to the external data source."
     ]
   },
 
@@ -9780,7 +9788,8 @@
   "examReference": "Select correct auth types for custom connectors",
   "source": "Custom generated",
   "examArea": "Solution Architecture (35-40%)"
-},
+}
+,
 	{
   "id": 118,
   "topic": "Power Apps",
