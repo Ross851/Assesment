@@ -7602,74 +7602,89 @@
   "topic": "Security",
   "type": "specialdragdrop",
   "difficultyLevel": "Medium",
-
-  "text": "DRAG DROP - You are designing a Microsoft Power Platform solution for a company. The company has the following requirements:\n• Users in the human resources department must be able to create tasks.\n• Users in the human resources department must be able to assign cases to other users.\n\nYou create a table for cases and tasks. You need to recommend security settings to the company. What should you recommend?",
+  "text": "DRAG DROP - You are designing a Microsoft Power Platform solution for a company. The company has the following requirements:\n• HR users need to create tasks for their own work\n• HR users need to view all tasks in their department\n• HR users need to assign cases to any user in the company\n\nYou need to recommend the appropriate security privilege levels. What should you recommend? To answer, drag the appropriate privilege level to the correct requirement. Each privilege level may be used once, more than once, or not at all. NOTE: Each correct selection is worth one point.",
   
   "keyWords": [
     "Dataverse security",
     "privileges",
-    "User-level create",
-    "Organization-level assign"
+    "User-level",
+    "Business Unit-level",
+    "Organization-level"
   ],
-
+  
   "hints": {
     "easy": [
-      "Creating tasks can be user-level for minimal exposure.",
-      "Assigning cases across the organization requires an organization-level Assign privilege."
+      "Creating for yourself needs the lowest privilege level.",
+      "Viewing department-wide requires Business Unit level.",
+      "Assigning across the company needs Organization level."
     ],
     "medium": [
-      "If you pick business-unit-level privileges, HR might not assign outside their BU.",
-      "For creating tasks, user-level privileges meet least-privilege security."
+      "User-level = only your own records",
+      "Business Unit-level = all records in your department",
+      "Organization-level = all records company-wide"
     ],
     "hard": [
-      "‘Assign’ scope determines how far a user can transfer ownership.",
-      "Don’t confuse ‘Assign’ with ‘Share.’ ‘Assign’ changes owner; ‘Share’ adds access."
+      "Consider least-privilege principle for each requirement.",
+      "Assignment scope determines how far ownership can be transferred."
     ]
   },
-
+  
   "conceptsTested": [
     "Dataverse security role configuration",
-    "privilege levels"
+    "Privilege levels",
+    "Least-privilege principle"
   ],
+  
   "commonMistakes": [
-    "Granting too high privileges for tasks",
-    "Restricting assignment to the same business unit"
+    "Granting Organization-level when Business Unit-level suffices",
+    "Confusing Read with Create privileges",
+    "Not understanding privilege level scope"
   ],
+  
   "analysisHighlights": {
     "requirements": [
-      "HR can create tasks at user-level",
-      "HR can assign cases at org-level"
+      "Personal task creation",
+      "Department-wide task visibility",
+      "Company-wide case assignment"
     ],
-    "constraints": [],
-    "technologies": []
+    "constraints": [
+      "HR department users only",
+      "Least-privilege security"
+    ],
+    "technologies": [
+      "Dataverse security roles",
+      "Privilege levels"
+    ]
   },
-
+  
   "requirements": [
-    "Users in the human resources department must be able to create tasks.",
-    "Users in the human resources department must be able to assign cases to other users."
+    "HR users need to create tasks for their own work",
+    "HR users need to view all tasks in their department",
+    "HR users need to assign cases to any user in the company"
   ],
-
+  
   "choices": [
-    "User-level Create privilege on the Task entity",
-    "Business Unit-level Create privilege on the Task entity",
-    "Organization-level Create privilege on the Task entity",
-    "User-level Assign privilege on the Case entity",
-    "Business Unit-level Assign privilege on the Case entity",
-    "Organization-level Assign privilege on the Case entity"
+    "User-level privileges",
+    "Business Unit-level privileges",
+    "Organization-level privileges",
+    "No access",
+    "Parent-Child Business Unit privileges",
+    "Deep-level privileges"
   ],
-
+  
   "correctAnswers": {
-    "Users in the human resources department must be able to create tasks.": "User-level Create privilege on the Task entity",
-    "Users in the human resources department must be able to assign cases to other users.": "Organization-level Assign privilege on the Case entity"
+    "HR users need to create tasks for their own work": "User-level privileges",
+    "HR users need to view all tasks in their department": "Business Unit-level privileges",
+    "HR users need to assign cases to any user in the company": "Organization-level privileges"
   },
-
+  
   "isMultipleChoice": false,
-
-  "detailedExplanation": "To create tasks, a user-level Create privilege is sufficient to let HR users create tasks without oversharing. Assigning cases to any user across the organization requires an organization-level Assign privilege on the Case table.",
-
+  
+  "detailedExplanation": "For creating personal tasks, User-level privileges are sufficient and follow least-privilege principles. To view all tasks within the HR department (Business Unit), Business Unit-level Read privileges are required. To assign cases to any user across the entire organization, Organization-level Assign privileges are necessary.",
+  
   "category": "Perform solution envisioning and requirement analysis",
   "weight": 5.8,
-  "examReference": "Configure Dataverse security roles for tasks and assignments",
+  "examReference": "Configure Dataverse security roles and privilege levels",
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
 }
