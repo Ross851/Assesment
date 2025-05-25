@@ -3699,7 +3699,7 @@
   "difficultyLevel": "Medium",
   
   "text": "DRAG DROP - You are a Microsoft Power Platform solution architect capturing requirements for a national retail chain project.\n\nThe project has the following requirements:\n• Retail employees must use the application on a company-provided tablet device.\n• The app must store data offline.\n• Environment capacity must be monitored to ensure usage stays within 80 percent of available capacity.\n• Apps are shared with security group teams for users to access.\n\nYou need to identify the project's functional and non-functional requirements.\nHow should you categorize the requirements? To answer, drag the appropriate categories to the correct requirements. Each category may be used once, more than once, or not at all.\nNOTE: Each correct selection is worth one point.",
-  
+
   "keyWords": [
     "tablet device",
     "offline data",
@@ -3710,14 +3710,14 @@
 
   "hints": {
     "easy": [
-      "Device usage is typically environmental constraint. Offline storage is functional. Monitoring capacity is a non-functional/performance requirement. Sharing apps with security groups is functional (a user access scenario)."
+      "Device usage is typically environmental constraint. Offline storage is functional. Monitoring capacity is non-functional. Sharing apps with security groups is functional."
     ],
     "medium": [
-      "Think about how you differentiate environment capacity checks (non-functional, operational constraints).",
-      "Security group-based sharing is part of the 'what the system does' from a user access perspective."
+      "Environment capacity checks are a performance/operational constraint (non-functional).",
+      "Security group-based sharing is part of what the system must do from a user access perspective (functional)."
     ],
     "hard": [
-      "If a requirement is about how well or how resources are used, it tends to be non-functional. If it’s about the app usage or data handling, it's functional."
+      "If a requirement is about how well or how resources are used, it tends to be non-functional. Device constraints are environmental."
     ]
   },
 
@@ -3749,69 +3749,38 @@
     ]
   },
 
-  "options": [
-    {
-      "source": {
-        "requirement": "Retail employees must use the application on a company-provided tablet device",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement",
-          "Environmental constraint",
-          "Compliance requirement"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "The app must store data offline",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement",
-          "Environmental constraint",
-          "Compliance requirement"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "Environment capacity must be monitored to ensure usage stays within 80 percent",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement",
-          "Environmental constraint",
-          "Compliance requirement"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "Apps are shared with security group teams for users to access",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement",
-          "Environmental constraint",
-          "Compliance requirement"
-        ]
-      }
-    }
+  "requirements": [
+    "Retail employees must use the application on a company-provided tablet device",
+    "The app must store data offline",
+    "Environment capacity must be monitored to ensure usage stays within 80 percent",
+    "Apps are shared with security group teams for users to access"
   ],
-  "correctAnswers": [
-    "Retail employees must use the application on a company-provided tablet device: Environmental constraint",
-    "The app must store data offline: Functional requirement",
-    "Environment capacity must be monitored to ensure usage stays within 80 percent: Non-functional requirement",
-    "Apps are shared with security group teams for users to access: Functional requirement"
+
+  "choices": [
+    "Functional requirement",
+    "Non-functional requirement",
+    "Environmental constraint",
+    "Compliance requirement"
   ],
+
+  "correctAnswers": {
+    "Retail employees must use the application on a company-provided tablet device": "Environmental constraint",
+    "The app must store data offline": "Functional requirement",
+    "Environment capacity must be monitored to ensure usage stays within 80 percent": "Non-functional requirement",
+    "Apps are shared with security group teams for users to access": "Functional requirement"
+  },
   
   "isMultipleChoice": false,
 
-  "detailedExplanation": "Using a company-provided tablet is an environmental constraint, describing hardware usage. Storing data offline is a direct functional capability. Monitoring capacity is a non-functional performance/operational requirement. Sharing apps with security groups is a functional user-access scenario describing what the system must do.",
-  
+  "detailedExplanation": "Using a company-provided tablet is an environmental constraint (hardware usage). Storing data offline is a direct functional capability. Monitoring capacity is a non-functional performance/operational requirement. Sharing apps with security groups is a functional user-access scenario describing what the system must do.",
+
   "category": "Perform solution envisioning and requirement analysis",
   "weight": 6.0,
   "examReference": "Identify requirement categories",
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
-},
+}
+,
 {
   "id": 39,
   "topic": "General",
