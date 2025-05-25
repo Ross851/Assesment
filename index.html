@@ -9934,7 +9934,7 @@
 	{
   "id": 120,
   "topic": "General",
-  "type": "sequence",
+  "type": "specialdragdrop",
   "difficultyLevel": "Medium",
 
   "text": "DRAG DROP -\nYou are a Microsoft Power Platform architect.\n\nYou must identify and document your organization's business processes to identify automation opportunities. You need to run task mining in Process Advisor.\n\nIn which order should you perform the actions?\nTo answer, move all actions from the list of actions to the answer area and arrange them in the correct order.",
@@ -9956,8 +9956,7 @@
     "task mining steps"
   ],
 
-  "commonMistakes": []
-  ,
+  "commonMistakes": [],
 
   "analysisHighlights": {
     "requirements": [
@@ -9966,7 +9965,7 @@
     "constraints": []
   },
 
-  "options": [
+  "requirements": [
     "Install the process advisor recorder (task mining agent)",
     "Create a new task mining process in process advisor",
     "Invite users and configure recordings for relevant tasks",
@@ -9974,16 +9973,18 @@
     "Generate an optimization report",
     "Create a Power Automate flow based on findings"
   ],
+
   "correctAnswers": [
     "Install the process advisor recorder (task mining agent)",
     "Create a new task mining process in process advisor",
     "Invite users and configure recordings for relevant tasks",
     "Review and analyze the recorded task data in process advisor"
   ],
+
   "isMultipleChoice": false,
 
   "detailedExplanation": "The correct order is: first install the recorder agent locally, then create a new task mining process in Process Advisor, invite users to record relevant tasks, and finally review and analyze the recorded data to identify automation opportunities.",
-  
+
   "category": "Perform solution envisioning and requirement analysis",
   "weight": 5.8,
   "examReference": "Implement Process Advisor task mining steps in order",
