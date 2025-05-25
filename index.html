@@ -10023,109 +10023,7 @@
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
 },      
-	{
-  "id": 301,
-  "topic": "Power Automate",
-  "type": "multiplechoice",
-  "difficultyLevel": "Medium",
-  
-  "text": "A manufacturing company wants to streamline its purchase order (PO) approval process. Currently, managers approve or reject purchase orders by email, and then an administrator manually updates a shared Excel file. You need to recommend a solution that automates and centralizes the approval process within Microsoft Power Platform. Which technology should the company adopt to manage purchase order approvals effectively?",
-  
-  "keyWords": [
-    "purchase order",
-    "approval process",
-    "Power Automate",
-    "automation",
-    "Excel"
-  ],
-  
-  "hints": {
-    "easy": [
-      "Think about built-in approval processes in Power Automate.",
-      "Consider if the user scenario requires a direct email-based solution or a more robust platform-based approach.",
-      "Look for a standard connector that tracks approvals and updates data automatically."
-    ],
-    "medium": [
-      "Approvals can store decisions centrally, so you don’t rely on manually checking emails.",
-      "Consider how to unify the data in a single source of truth, rather than Excel.",
-      "Power Automate has built-in flows for routing approvals to managers or groups."
-    ],
-    "hard": [
-      "Evaluate advanced scenarios like sequential vs. parallel approvals and storing approval history for auditing.",
-      "Think about handling escalations, reminders, or multiple approval steps in a single flow.",
-      "Consider whether Dataverse might store purchase orders and track the approval state."
-    ]
-  },
-  
-  "conceptsTested": [
-    "Power Automate approvals",
-    "flow design",
-    "collaboration & automation",
-    "data storage best practices",
-    "governance"
-  ],
-  
-  "commonMistakes": [
-    "Continuing to rely on email threads as the sole record of approval.",
-    "Ignoring the built-in Approval actions in Power Automate.",
-    "Using unconnected Excel sheets without real-time data synchronization.",
-    "Not notifying requestors or admins automatically about final decisions."
-  ],
-  
-  "analysisHighlights": {
-    "requirements": [
-      "Automate the approval process",
-      "Avoid manual data entry",
-      "Track decisions in a single system"
-    ],
-    "constraints": [
-      "Multiple managers approving",
-      "Existing process relies on emails + Excel"
-    ],
-    "technologies": [
-      "Power Automate Approvals",
-      "Dataverse or SharePoint list for PO data"
-    ]
-  },
-  
-  "options": [
-    {
-      "letter": "A",
-      "text": "Continue using email but rely on an Excel macro for final updates",
-      "isCorrect": false,
-      "analysis": "This maintains the manual approach, leaving the admin to check emails and update Excel. It doesn't solve the real-time or centralized approval tracking problem."
-    },
-    {
-      "letter": "B",
-      "text": "Use Microsoft Forms to collect purchase orders and forward emails to managers",
-      "isCorrect": false,
-      "analysis": "While Forms can gather data, it doesn’t provide a robust approval tracking mechanism or unify manager decisions without manual steps."
-    },
-    {
-      "letter": "C",
-      "text": "Leverage the built-in Approval actions in Power Automate with a central data source",
-      "isCorrect": true,
-      "analysis": "This allows automated assignment of POs to managers, tracks the approvals, and writes back decisions in real time to a standard location (e.g., Dataverse or SharePoint)."
-    },
-    {
-      "letter": "D",
-      "text": "Develop a Power BI report that visualizes purchase orders and manager emails",
-      "isCorrect": false,
-      "analysis": "Power BI can visualize data but does not provide a built-in, interactive approval mechanism or reduce the manual overhead."
-    }
-  ],
-  
-  "correctAnswers": ["C"],
-  "isMultipleChoice": false,
-  
-  "detailedExplanation": "Power Automate includes a comprehensive 'Approvals' feature that routes approval requests to designated managers, captures decisions in a centralized system, and logs final outcomes automatically. This eliminates the need for manual email checks and spreadsheet updates. You can store purchase order records in Dataverse or SharePoint, trigger the flow when a new PO is created, and let managers approve/reject from Teams or email. The system then writes the status back, offering real-time visibility into the entire approval process.",
-  
-  "category": "Architect a solution",
-  "weight": 6.5,
-  "examReference": "Design automated workflows with Approvals",
-  "source": "Custom generated",
-  "examArea": "Solution Architecture (35-40%)"
-},
+,
 	      {
   "id": 121,
   "topic": "General",
@@ -10853,7 +10751,110 @@
   "examReference": "Constraints on virtual tables for security vs. auditing",
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
-}
+},
+{
+  "id": 301,
+  "topic": "Power Automate",
+  "type": "multiplechoice",
+  "difficultyLevel": "Medium",
+  
+  "text": "A manufacturing company wants to streamline its purchase order (PO) approval process. Currently, managers approve or reject purchase orders by email, and then an administrator manually updates a shared Excel file. You need to recommend a solution that automates and centralizes the approval process within Microsoft Power Platform. Which technology should the company adopt to manage purchase order approvals effectively?",
+  
+  "keyWords": [
+    "purchase order",
+    "approval process",
+    "Power Automate",
+    "automation",
+    "Excel"
+  ],
+  
+  "hints": {
+    "easy": [
+      "Think about built-in approval processes in Power Automate.",
+      "Consider if the user scenario requires a direct email-based solution or a more robust platform-based approach.",
+      "Look for a standard connector that tracks approvals and updates data automatically."
+    ],
+    "medium": [
+      "Approvals can store decisions centrally, so you don’t rely on manually checking emails.",
+      "Consider how to unify the data in a single source of truth, rather than Excel.",
+      "Power Automate has built-in flows for routing approvals to managers or groups."
+    ],
+    "hard": [
+      "Evaluate advanced scenarios like sequential vs. parallel approvals and storing approval history for auditing.",
+      "Think about handling escalations, reminders, or multiple approval steps in a single flow.",
+      "Consider whether Dataverse might store purchase orders and track the approval state."
+    ]
+  },
+  
+  "conceptsTested": [
+    "Power Automate approvals",
+    "flow design",
+    "collaboration & automation",
+    "data storage best practices",
+    "governance"
+  ],
+  
+  "commonMistakes": [
+    "Continuing to rely on email threads as the sole record of approval.",
+    "Ignoring the built-in Approval actions in Power Automate.",
+    "Using unconnected Excel sheets without real-time data synchronization.",
+    "Not notifying requestors or admins automatically about final decisions."
+  ],
+  
+  "analysisHighlights": {
+    "requirements": [
+      "Automate the approval process",
+      "Avoid manual data entry",
+      "Track decisions in a single system"
+    ],
+    "constraints": [
+      "Multiple managers approving",
+      "Existing process relies on emails + Excel"
+    ],
+    "technologies": [
+      "Power Automate Approvals",
+      "Dataverse or SharePoint list for PO data"
+    ]
+  },
+  
+  "options": [
+    {
+      "letter": "A",
+      "text": "Continue using email but rely on an Excel macro for final updates",
+      "isCorrect": false,
+      "analysis": "This maintains the manual approach, leaving the admin to check emails and update Excel. It doesn't solve the real-time or centralized approval tracking problem."
+    },
+    {
+      "letter": "B",
+      "text": "Use Microsoft Forms to collect purchase orders and forward emails to managers",
+      "isCorrect": false,
+      "analysis": "While Forms can gather data, it doesn’t provide a robust approval tracking mechanism or unify manager decisions without manual steps."
+    },
+    {
+      "letter": "C",
+      "text": "Leverage the built-in Approval actions in Power Automate with a central data source",
+      "isCorrect": true,
+      "analysis": "This allows automated assignment of POs to managers, tracks the approvals, and writes back decisions in real time to a standard location (e.g., Dataverse or SharePoint)."
+    },
+    {
+      "letter": "D",
+      "text": "Develop a Power BI report that visualizes purchase orders and manager emails",
+      "isCorrect": false,
+      "analysis": "Power BI can visualize data but does not provide a built-in, interactive approval mechanism or reduce the manual overhead."
+    }
+  ],
+  
+  "correctAnswers": ["C"],
+  "isMultipleChoice": false,
+  
+  "detailedExplanation": "Power Automate includes a comprehensive 'Approvals' feature that routes approval requests to designated managers, captures decisions in a centralized system, and logs final outcomes automatically. This eliminates the need for manual email checks and spreadsheet updates. You can store purchase order records in Dataverse or SharePoint, trigger the flow when a new PO is created, and let managers approve/reject from Teams or email. The system then writes the status back, offering real-time visibility into the entire approval process.",
+  
+  "category": "Architect a solution",
+  "weight": 6.5,
+  "examReference": "Design automated workflows with Approvals",
+  "source": "Custom generated",
+  "examArea": "Solution Architecture (35-40%)"
+}	      
 ,	      
 {
   "id": 302,
