@@ -5815,54 +5815,35 @@
     "constraints": []
   },
 
-  "options": [
-    {
-      "source": {
-        "requirement": "construction",
-        "choices": [
-          "job shadowing",
-          "surveys",
-          "workshops"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "sales",
-        "choices": [
-          "job shadowing",
-          "surveys",
-          "workshops"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "warranty",
-        "choices": [
-          "job shadowing",
-          "surveys",
-          "workshops"
-        ]
-      }
-    }
+  "requirements": [
+    "construction",
+    "sales",
+    "warranty"
   ],
 
-  "correctAnswers": [
-    "sales: surveys",
-    "construction: job shadowing",
-    "warranty: workshops"
+  "choices": [
+    "job shadowing",
+    "surveys",
+    "workshops"
   ],
+
+  "correctAnswers": {
+    "sales": "surveys",
+    "construction": "job shadowing",
+    "warranty": "workshops"
+  },
+
   "isMultipleChoice": false,
 
   "detailedExplanation": "Sales employees spread out or with unpredictable schedules are best reached via surveys. Construction workers appreciate hands-on demonstration of tasks, so job shadowing reveals real processes. Warranty staff regularly gather, so workshops let them discuss issues in depth collaboratively.",
-  
+
   "category": "Perform solution envisioning and requirement analysis",
   "weight": 5.5,
   "examReference": "Tailor discovery method by department",
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
-},
+}
+,
 {
   "id": 65,
   "topic": "Dataverse",
