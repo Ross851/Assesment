@@ -6249,57 +6249,36 @@
     "constraints": []
   },
 
-  "options": [
-    {
-      "source": {
-        "requirement": "Allow users to place orders, track order status, and receive notifications about order shipments",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement",
-          "Technical constraint",
-          "Business constraint"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "Provide availability 24 hours a day, excluding scheduled maintenance windows",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement",
-          "Technical constraint",
-          "Business constraint"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "Support real-time tracking of inventory levels",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement",
-          "Technical constraint",
-          "Business constraint"
-        ]
-      }
-    }
+  "requirements": [
+    "Allow users to place orders, track order status, and receive notifications about order shipments",
+    "Provide availability 24 hours a day, excluding scheduled maintenance windows",
+    "Support real-time tracking of inventory levels"
   ],
 
-  "correctAnswers": [
-    "Allow users to place orders, track order status, and receive notifications about order shipments: Functional requirement",
-    "Provide availability 24 hours a day, excluding scheduled maintenance windows: Non-functional requirement",
-    "Support real-time tracking of inventory levels: Functional requirement"
+  "choices": [
+    "Functional requirement",
+    "Non-functional requirement",
+    "Technical constraint",
+    "Business constraint"
   ],
+
+  "correctAnswers": {
+    "Allow users to place orders, track order status, and receive notifications about order shipments": "Functional requirement",
+    "Provide availability 24 hours a day, excluding scheduled maintenance windows": "Non-functional requirement",
+    "Support real-time tracking of inventory levels": "Functional requirement"
+  },
+
   "isMultipleChoice": false,
 
   "detailedExplanation": "Placing and tracking orders with notifications is a direct user action—functional. Real-time inventory tracking is also a system feature for users—functional. The system’s 24/7 availability is a performance/uptime requirement—non-functional.",
-  
+
   "category": "Perform solution envisioning and requirement analysis",
   "weight": 6.3,
   "examReference": "Classify logistic solution requirements",
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
-},
+}
+,
 {
   "id": 71,
   "topic": "Integration",
@@ -6378,9 +6357,10 @@
   "examArea": "Solution Architecture (35-40%)"
 },
 	{
+ {
   "id": 72,
   "topic": "General",
-  "type": "dragdrop",
+  "type": "specialdragdrop",
   "difficultyLevel": "Easy",
 
   "text": "DRAG DROP - You need to recommend solutions to meet the organization's communication needs. What should you recommend?",
@@ -6415,21 +6395,22 @@
     "constraints": []
   },
 
-  "options": [
-    {
-      "source": "Technologies",
-      "targets": []
-    },
-    {
-      "source": "Groups of users",
-      "targets": []
-    }
+  "requirements": [
+    "First Up employees",
+    "Workers"
   ],
 
-  "correctAnswers": [
-    "First Up employees \u2192 Microsoft Teams",
-    "Workers \u2192 Power Pages"
+  "choices": [
+    "Microsoft Teams",
+    "Power Pages",
+    "Microsoft 365 Business Voice"
   ],
+
+  "correctAnswers": {
+    "First Up employees": "Microsoft Teams",
+    "Workers": "Power Pages"
+  },
+
   "isMultipleChoice": false,
 
   "detailedExplanation": "As explained, employees use Teams for internal Q&A, while external or field workers use Power Pages for sign-in and self-service record access. This solution meets the distinct needs of each user group.",
@@ -6439,7 +6420,8 @@
   "examReference": "Recommend the right communication platform",
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
-},
+}
+,
 {
   "id": 73,
   "topic": "General",
