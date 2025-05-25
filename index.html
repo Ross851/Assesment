@@ -7602,11 +7602,11 @@
   "topic": "Security",
   "type": "specialdragdrop",
   "difficultyLevel": "Medium",
-  "text": "DRAG DROP - You are designing a Microsoft Power Platform solution for a company. The company has the following requirements:\n• HR users need to create tasks for their own work\n• HR users need to view all tasks in their department\n• HR users need to assign cases to any user in the company\n\nYou need to recommend the appropriate security privilege levels. What should you recommend? To answer, drag the appropriate privilege level to the correct requirement. Each privilege level may be used once, more than once, or not at all. NOTE: Each correct selection is worth one point.",
+  "text": "DRAG DROP - You are configuring security for a Microsoft Power Platform solution. The HR department has these requirements:\n• Create and manage their own tasks\n• View all cases in the HR department\n• Assign cases to anyone in the company\n\nYou need to configure the minimum required privilege levels. What privilege level should you assign for each requirement? To answer, drag the appropriate privilege levels to the correct requirements. Each privilege level may be used once, more than once, or not at all. NOTE: Each correct selection is worth one point.",
   
   "keyWords": [
     "Dataverse security",
-    "privileges",
+    "privilege levels",
     "User-level",
     "Business Unit-level",
     "Organization-level"
@@ -7614,77 +7614,73 @@
   
   "hints": {
     "easy": [
-      "Creating for yourself needs the lowest privilege level.",
-      "Viewing department-wide requires Business Unit level.",
-      "Assigning across the company needs Organization level."
+      "User-level allows access to your own records only",
+      "Organization-level allows access across the entire company"
     ],
     "medium": [
-      "User-level = only your own records",
-      "Business Unit-level = all records in your department",
-      "Organization-level = all records company-wide"
+      "Business Unit typically represents a department",
+      "Always apply least-privilege principle"
     ],
     "hard": [
-      "Consider least-privilege principle for each requirement.",
-      "Assignment scope determines how far ownership can be transferred."
+      "Assign privilege determines ownership transfer scope",
+      "Read and Create can have different privilege levels"
     ]
   },
   
   "conceptsTested": [
-    "Dataverse security role configuration",
-    "Privilege levels",
+    "Dataverse security roles",
+    "Privilege level scopes",
     "Least-privilege principle"
   ],
   
   "commonMistakes": [
-    "Granting Organization-level when Business Unit-level suffices",
-    "Confusing Read with Create privileges",
-    "Not understanding privilege level scope"
+    "Over-privileging with Organization-level when not needed",
+    "Under-privileging Business Unit operations",
+    "Confusing entity types with privilege scopes"
   ],
   
   "analysisHighlights": {
     "requirements": [
-      "Personal task creation",
-      "Department-wide task visibility",
-      "Company-wide case assignment"
+      "Task creation at personal level",
+      "Case viewing at department level",
+      "Case assignment at organization level"
     ],
     "constraints": [
-      "HR department users only",
-      "Least-privilege security"
+      "Minimum required privileges",
+      "HR department scope"
     ],
     "technologies": [
-      "Dataverse security roles",
-      "Privilege levels"
+      "Dataverse security model"
     ]
   },
   
   "requirements": [
-    "HR users need to create tasks for their own work",
-    "HR users need to view all tasks in their department",
-    "HR users need to assign cases to any user in the company"
+    "Create and manage their own tasks",
+    "View all cases in the HR department",
+    "Assign cases to anyone in the company"
   ],
   
   "choices": [
-    "User-level privileges",
-    "Business Unit-level privileges",
-    "Organization-level privileges",
-    "No access",
-    "Parent-Child Business Unit privileges",
-    "Deep-level privileges"
+    "User-level privilege",
+    "Business Unit-level privilege",
+    "Organization-level privilege",
+    "Team-level privilege",
+    "No access"
   ],
   
   "correctAnswers": {
-    "HR users need to create tasks for their own work": "User-level privileges",
-    "HR users need to view all tasks in their department": "Business Unit-level privileges",
-    "HR users need to assign cases to any user in the company": "Organization-level privileges"
+    "Create and manage their own tasks": "User-level privilege",
+    "View all cases in the HR department": "Business Unit-level privilege",
+    "Assign cases to anyone in the company": "Organization-level privilege"
   },
   
   "isMultipleChoice": false,
   
-  "detailedExplanation": "For creating personal tasks, User-level privileges are sufficient and follow least-privilege principles. To view all tasks within the HR department (Business Unit), Business Unit-level Read privileges are required. To assign cases to any user across the entire organization, Organization-level Assign privileges are necessary.",
+  "detailedExplanation": "Following the least-privilege principle: User-level privilege is sufficient for creating and managing personal tasks. Business Unit-level privilege enables viewing all cases within the HR department (business unit). Organization-level privilege is required to assign cases to any user across the entire organization.",
   
   "category": "Perform solution envisioning and requirement analysis",
   "weight": 5.8,
-  "examReference": "Configure Dataverse security roles and privilege levels",
+  "examReference": "Configure Dataverse security roles",
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
 }
@@ -10130,6 +10126,735 @@
   "source": "Custom generated",
   "examArea": "Solution Architecture (35-40%)"
 },
+	      {
+  "id": 121,
+  "topic": "General",
+  "type": "multiplechoice",
+  "text": "You are designing forms for a Microsoft Power Platform solution. Each person must only see the columns for their department. You need to ensure forms open correctly, display only needed fields, and allow quick data entry.\n\nHow should you design the form?",
+  
+  "analysis": "One form per department, minimal fields, assigned to the department's security role is a best-practice approach.",
+  "explanation": "This method is simpler to maintain and ensures each department sees only the relevant columns.",
+
+  "keyWords": [
+    "forms",
+    "department-specific columns",
+    "security roles"
+  ],
+  "hints": {
+    "easy": [
+      "Each department only sees relevant fields -> separate forms, each assigned to that dept’s role."
+    ],
+    "medium": [],
+    "hard": []
+  },
+  "conceptsTested": [
+    "form design best practices",
+    "security-based form assignment"
+  ],
+  "commonMistakes": [
+    "Putting all fields in one form and hiding them with business rules"
+  ],
+  "analysisHighlights": {
+    "requirements": [
+      "Department-specific columns visible",
+      "Quick data entry"
+    ],
+    "constraints": []
+  },
+
+  "options": [
+    {
+      "letter": "A",
+      "text": "Create one form for each department. Add all columns needed for all departments. Use business rules to hide columns.",
+      "analysis": "All columns on every form is unwieldy. Heavy reliance on business rules to hide is more complex."
+    },
+    {
+      "letter": "B",
+      "text": "Create a shared form for all departments. Add all columns. Add column-level security to columns not needed for each department.",
+      "analysis": "Column-level security is for read/update privileges, not an ideal way to show/hide on forms."
+    },
+    {
+      "letter": "C",
+      "text": "Create one form for each department. Add only columns needed on the form for each department. Assign the appropriate security role to each form.",
+      "analysis": "Typically recommended: separate form per department with minimal fields, assigned to that dept’s security role.",
+      "isCorrect": true
+    },
+    {
+      "letter": "D",
+      "text": "Add new columns to an existing form. Grant all departments security roles for that form.",
+      "analysis": "Everyone sees all columns, doesn’t address department-limited columns."
+    }
+  ],	      
+  
+  "correctAnswers": ["C"],
+  "isMultipleChoice": false,
+
+  "detailedExplanation": "Creating separate forms with only the relevant columns per department and assigning them to each department’s security role is the simplest, cleanest solution. It avoids complex field-hiding logic and ensures quick data entry.",
+  
+  "category": "Perform solution envisioning and requirement analysis",
+  "weight": 5.0,
+  "examReference": "Design forms with department-limited fields",
+  "source": "Custom generated",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 122,
+  "topic": "General",
+  "type": "multiplechoice",
+  "text": "You are designing an authentication strategy.\nThe solution must provide multiple primary authentication options for Microsoft Power Platform sign-in events.\n\nWhich two methods can be used as primary authentication? Each correct answer presents a complete solution.\nNOTE: Each correct selection is worth one point.",
+
+  "analysis": "Azure AD can use Windows Hello for Business (passwordless) or the Microsoft Authenticator app (phone sign-in) as primary. Software tokens are typically second-factor, so they’re not primary. FIDO2 keys also can be used, but not listed here.",
+  "explanation": "Hence the feasible primary methods are Windows Hello for Business and Microsoft Authenticator in phone sign-in mode.",
+
+  "keyWords": [
+    "authentication strategy",
+    "primary auth methods",
+    "Windows Hello for Business",
+    "Authenticator"
+  ],
+  "hints": {
+    "easy": [
+      "Windows Hello for Business & Microsoft Authenticator phone sign-in are valid primary methods in Azure AD."
+    ],
+    "medium": [],
+    "hard": []
+  },
+  "conceptsTested": [
+    "Azure AD passwordless authentication"
+  ],
+  "commonMistakes": [
+    "Treating voice call or software tokens as primary sign-in"
+  ],
+  "analysisHighlights": {
+    "requirements": [
+      "Multiple primary auth methods for sign-in"
+    ],
+    "constraints": []
+  },
+
+  "options": [
+    {
+      "letter": "A",
+      "text": "Windows Hello for Business",
+      "analysis": "Gesture-based sign-in integrated with Azure AD, can be a primary method.",
+      "isCorrect": true
+    },
+    {
+      "letter": "B",
+      "text": "OAUTH software tokens",
+      "analysis": "Usually part of the background flow or second-factor, not primary sign-in on its own.",
+      "isCorrect": false
+    },
+    {
+      "letter": "C",
+      "text": "Microsoft Authenticator app",
+      "analysis": "Phone sign-in mode can be configured as a passwordless primary method.",
+      "isCorrect": true
+    },
+    {
+      "letter": "D",
+      "text": "Voice call",
+      "analysis": "Typically an MFA step, not a primary sign-in method.",
+      "isCorrect": false
+    }
+  ],
+
+  "correctAnswers": ["A","C"],
+  "isMultipleChoice": true,
+
+  "detailedExplanation": "For primary sign-in, Windows Hello for Business and Microsoft Authenticator phone sign-in are valid passwordless solutions. Voice calls or OAuth tokens are more like second-factor or standard token flows, not direct primary methods.",
+  
+  "category": "Perform solution envisioning and requirement analysis",
+  "weight": 5.0,
+  "examReference": "Provide multiple primary Azure AD authentication methods",
+  "source": "Custom generated",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+},
+{
+  "id": 123,
+  "topic": "Power Apps",
+  "type": "multiplechoice",
+  "text": "A company wants employees from multiple Azure AD tenants to access a model-driven app. The employees will be added as Azure AD guest users in the tenant that hosts the app. The employees must be members of a security team that has the Employee Security role to access the model-driven app. They must also create personal views. You need to implement a security solution.\n\nWhich privilege should you use?",
+
+  "analysis": "We want them to be part of a Dataverse Owner Team so they can collectively hold the security role and create personal views. 'Team' is the relevant approach in Dataverse.",
+  "explanation": "Team-based ownership is recommended for guests: you add them to an Owner Team that has the security role, enabling personal view creation.",
+
+  "keyWords": [
+    "guest users",
+    "model-driven app",
+    "owner team",
+    "personal views"
+  ],
+  "hints": {
+    "easy": [
+      "Dataverse: assign roles to a Team so all members share privileges, including personal view creation."
+    ]
+  },
+  "conceptsTested": [
+    "Dataverse team-based security"
+  ],
+  "commonMistakes": [
+    "Using an Azure AD group or direct user roles incorrectly"
+  ],
+  "analysisHighlights": {
+    "requirements": [
+      "Guest access to model-driven app",
+      "Create personal views"
+    ],
+    "constraints": []
+  },
+
+  "options": [
+    {
+      "letter": "A",
+      "text": "Direct basic level",
+      "analysis": "Not a standard approach for guest scenario or personal views."
+    },
+    {
+      "letter": "B",
+      "text": "Shared app access",
+      "analysis": "Sharing an app does not address personal views or Dataverse roles."
+    },
+    {
+      "letter": "C",
+      "text": "Team",
+      "analysis": "Dataverse Owner Team can hold a security role, letting members create personal views. This is correct.",
+      "isCorrect": true
+    },
+    {
+      "letter": "D",
+      "text": "Azure AD security group",
+      "analysis": "That alone doesn’t handle Dataverse role assignment for personal views."
+    }
+  ],
+
+  "correctAnswers": ["C"],
+  "isMultipleChoice": false,
+
+  "detailedExplanation": "Creating or owning personal views requires user-level privileges assigned. The simplest approach is to create an Owner Team in Dataverse, assign it the needed role, and add the guest users to that team so they can create personal views.",
+  
+  "category": "Perform solution envisioning and requirement analysis",
+  "weight": 5.0,
+  "examReference": "Use Dataverse teams for external user security roles",
+  "source": "Custom generated",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+}
+,
+{
+  "id": 124,
+  "topic": "Dataverse",
+  "type": "hotspot",
+  "text": "HOTSPOT - A company is continually importing data from several data sources into Microsoft Dataverse. Requirements: • Integrated error handling if records fail import • Augment data with AI and ML models\n\nYou need to select a component for each requirement.\n\nWhich components do you use? To answer, select the options in the answer area. NOTE: Each correct selection is worth one point.",
+
+  "analysis": "For integrated error handling in repeated data imports, dataflows are typical. For AI/ML augmentation, AI Builder is used in Power Platform context.",
+  "explanation": "So dataflows for ingestion + error management, and AI Builder for AI/ML augmentation.",
+
+  "keyWords": [
+    "hotspot",
+    "dataflows",
+    "AI Builder",
+    "data import"
+  ],
+  "hints": {
+    "easy": [
+      "Dataflows have built-in transformations and error details; AI Builder is for model-based enrichment."
+    ]
+  },
+  "conceptsTested": [
+    "data ingestion approach",
+    "Power Platform AI augmentation"
+  ],
+  "commonMistakes": [],
+  "analysisHighlights": {
+    "requirements": [
+      "Automate data import with error handling",
+      "Augment with AI"
+    ],
+    "constraints": []
+  },
+
+  "options": {
+    "areas": [
+      {
+        "name": "Integrated error handling if records fail import",
+        "options": [
+          "Dataflows",
+          "Power Automate",
+          "Azure Data Factory",
+          "SSIS Integration"
+        ]
+      },
+      {
+        "name": "Augment data with AI and ML models",
+        "options": [
+          "AI Builder",
+          "Azure Machine Learning",
+          "Azure Cognitive Services",
+          "Power BI Premium"
+        ]
+      }
+    ]
+  },
+
+  "correctAnswers": [
+    "Integrated error handling if records fail import: Dataflows",
+    "Augment data with AI and ML models: AI Builder"
+  ],
+
+  "isMultipleChoice": false,
+
+  "detailedExplanation": "Dataflows provide ongoing data import into Dataverse with transformations and some integrated error logging. For AI or ML augmentation within Power Platform, AI Builder is the recommended solution.",
+  
+  "category": "Architect a solution",
+  "weight": 5.0,
+  "examReference": "Select correct data import and AI components",
+  "source": "Custom generated",
+  "examArea": "Solution Architecture (35-40%)"
+}
+,
+{
+  "id": 125,
+  "topic": "Dataverse",
+  "type": "multiplechoice",
+  "text": "You design integration with an external data source that uses sequential integer values as primary keys. Data synchronization occurs in Dataverse so users can access data. Data in Dataverse must be accurate vs. the external system. You need to ensure no duplicate rows.\n\nWhich two features should you use? Each correct answer presents part of the solution.\nNOTE: Each correct selection is worth one point.",
+
+  "analysis": "Alternate keys on external PK ensures uniqueness. The Upsert method merges or updates without duplicates.",
+  "explanation": "Alternate key + Upsert is a standard approach to guarantee no duplicates and accurate merges from an external system.",
+
+  "keyWords": [
+    "sequential integer PK",
+    "no duplicates",
+    "upsert",
+    "alternate key"
+  ],
+  "hints": {
+    "easy": [
+      "An alternate key ensures uniqueness. Upsert merges existing or inserts new if none found."
+    ]
+  },
+  "conceptsTested": [
+    "data integration duplication prevention"
+  ],
+  "commonMistakes": [],
+  "analysisHighlights": {
+    "requirements": [
+      "No duplicate rows from external system"
+    ],
+    "constraints": []
+  },
+
+  "options": [
+    {
+      "letter": "A",
+      "text": "Webhook",
+      "analysis": "Used for notifications, not duplication prevention.",
+      "isCorrect": false
+    },
+    {
+      "letter": "B",
+      "text": "Change tracking",
+      "analysis": "Identifies changed records, not ensuring uniqueness.",
+      "isCorrect": false
+    },
+    {
+      "letter": "C",
+      "text": "Duplicate detection rules",
+      "analysis": "Could help, but not as robust as alternate key + upsert. The question specifically references a PK approach.",
+      "isCorrect": false
+    },
+    {
+      "letter": "D",
+      "text": "Upsert method",
+      "analysis": "Yes, merges or inserts a record without duplication issues if a match is found via key.",
+      "isCorrect": true
+    },
+    {
+      "letter": "E",
+      "text": "Alternate key",
+      "analysis": "Yes, ensures uniqueness on that external integer ID field.",
+      "isCorrect": true
+    }
+  ],
+
+  "correctAnswers": ["D","E"],
+  "isMultipleChoice": true,
+
+  "detailedExplanation": "By defining an alternate key on the external primary key column and using the upsert method for synchronization, you prevent duplicates and maintain data consistency with the external system.",
+  
+  "category": "Architect a solution",
+  "weight": 5.0,
+  "examReference": "Prevent duplicates with alternate keys and upsert",
+  "source": "Custom generated",
+  "examArea": "Solution Architecture (35-40%)"
+}
+,
+{
+  "id": 126,
+  "topic": "Dataverse",
+  "type": "multiplechoice",
+  "text": "A company plans to migrate data from a third-party app into Dataverse for a new Power Platform solution. They have unique IDs in the third-party app that must also exist in Dataverse.\n\nWhich two Dataverse column types should you use? Each correct answer presents a complete solution.\nNOTE: Each correct selection is worth one point.",
+
+  "analysis": "Storing external IDs is typically done in Plain Text or Unique Identifier columns. If the external ID is a GUID, use Unique Identifier. For general alphanumeric, Single-line text is used.",
+  "explanation": "Plain text is best for typical string IDs. Unique Identifier helps store GUID-based external IDs. Float, multiline text, and lookups are not recommended for IDs.",
+  
+  "keyWords": [
+    "unique IDs",
+    "Dataverse column types",
+    "plain text",
+    "unique identifier"
+  ],
+  "hints": {
+    "easy": [
+      "Single-line text for string IDs, or Unique Identifier for GUID-based external IDs."
+    ]
+  },
+  "conceptsTested": [
+    "mapping external IDs to Dataverse columns"
+  ],
+  "commonMistakes": [],
+  "analysisHighlights": {
+    "requirements": [
+      "Preserve external ID fields"
+    ],
+    "constraints": []
+  },
+
+  "options": [
+    {
+      "letter": "A",
+      "text": "Plain Text",
+      "analysis": "Ideal for storing alphanumeric IDs from external systems.",
+      "isCorrect": true
+    },
+    {
+      "letter": "B",
+      "text": "Text Area",
+      "analysis": "Multiline text is not needed for single ID values.",
+      "isCorrect": false
+    },
+    {
+      "letter": "C",
+      "text": "Float",
+      "analysis": "Risk of rounding, not suitable for an ID.",
+      "isCorrect": false
+    },
+    {
+      "letter": "D",
+      "text": "Unique Identifier",
+      "analysis": "If the external ID is a GUID, use Unique Identifier.",
+      "isCorrect": true
+    },
+    {
+      "letter": "E",
+      "text": "Rich Text",
+      "analysis": "Unnecessary formatting for an ID field.",
+      "isCorrect": false
+    },
+    {
+      "letter": "F",
+      "text": "Lookup",
+      "analysis": "For referencing other records, not storing raw external IDs.",
+      "isCorrect": false
+    }
+  ],
+
+  "correctAnswers": ["A","D"],
+  "isMultipleChoice": true,
+
+  "detailedExplanation": "Single-line text (Plain Text) handles typical external string IDs. If the external system uses GUIDs, a Unique Identifier column is perfect. Other data types either introduce unnecessary complexity or are not suitable for ID fields.",
+  
+  "category": "Perform solution envisioning and requirement analysis",
+  "weight": 5.5,
+  "examReference": "Choose correct column types for external IDs",
+  "source": "Custom generated",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+}
+,
+	      {
+  "id": 127,
+  "topic": "Dataverse",
+  "type": "specialdragdrop",
+  "difficultyLevel": "Medium",
+
+  "text": "DRAG DROP - You are designing a Power Platform solution for a financial services company. Data from existing systems will be imported into Dataverse.\n\nThe company has:\n• Phone numbers that may contain letters\n• No security on the 'financial total' field\n• Open visibility for all records\n\nYou need to apply data quality standards.\n\nMatch each solution to the correct data quality item.\nNOTE: Each correct selection is worth one point.",
+
+  "analysis": "We want to fix phone numbers that might have letters -> apply phone data type or input mask. No security on the 'financial total' field -> field-level security. Open visibility -> role-based or row-level security to limit. ",
+  "explanation": "Enforcing phone or input mask for phone columns, field-level security for sensitive numeric fields, row-level or role-based to fix open visibility if needed.",
+
+  "keyWords": [
+    "phone number",
+    "field-level security",
+    "row-level security",
+    "specialdragdrop"
+  ],
+  "hints": {
+    "easy": [
+      "Letters in phone => phone data type or mask. 'financial total' => field-level security. Restrict record visibility => row-level or role-based security."
+    ]
+  },
+  "conceptsTested": [
+    "data quality with phone columns",
+    "field-level security",
+    "restrict record visibility"
+  ],
+  "commonMistakes": [],
+  "analysisHighlights": {
+    "requirements": [
+      "enforce phone # format",
+      "secure financial total",
+      "constrain record visibility"
+    ],
+    "constraints": []
+  },
+
+  "requirements": [
+    "Phone numbers that may contain letters",
+    "No security on the 'financial total' field",
+    "Open visibility for all records"
+  ],
+  "choices": [
+    "Use an input mask or phone data type",
+    "Enable field-level security",
+    "Apply role-based or row-level security",
+    "Use default value handling",
+    "Force column as mandatory"
+  ],
+  "correctAnswers": {
+    "Phone numbers that may contain letters": "Use an input mask or phone data type",
+    "No security on the 'financial total' field": "Enable field-level security",
+    "Open visibility for all records": "Apply role-based or row-level security"
+  },
+
+  "isMultipleChoice": false,
+
+  "detailedExplanation": "Phone data type or input masks enforce correct phone format. Field-level security can restrict the 'financial total' to authorized users only. Role-based or row-level security ensures not everyone can see all records if that’s a requirement to limit access.",
+  
+  "category": "Perform solution envisioning and requirement analysis",
+  "weight": 5.0,
+  "examReference": "Data quality solutions in Dataverse",
+  "source": "Custom generated",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+}
+,
+	      {
+  "id": 128,
+  "topic": "Power Apps",
+  "type": "multiplechoice",
+  "text": "You are implementing a model-driven app for a chain of retail stores.\n\nRequirements:\n• Store employees can see data for their store only\n• Regional managers can see data for all stores in that region\n• The reporting team can see all data\n\nWhich three security methods should you use? Each correct answer presents part of the solution.\nNOTE: Each correct selection is worth one point.",
+
+  "analysis": "A manager hierarchy is for region managers. Security roles define privileges. Owner teams can group employees by store or region. Azure AD group alone is not row-level. Account hierarchy is for account entity, not store data. So the 3 are Manager hierarchy, Security roles, Owner teams.",
+  "explanation": "Using manager hierarchy for region managers, plus security roles and owner teams, ensures each store is separate yet region managers and the reporting team see the correct data scope.",
+
+  "keyWords": [
+    "model-driven app",
+    "store data restrictions",
+    "manager hierarchy",
+    "security roles",
+    "owner teams"
+  ],
+  "hints": {
+    "easy": [
+      "Owner teams or BU for store-level. Manager hierarchy for region manager. Security roles for controlling privileges."
+    ]
+  },
+  "conceptsTested": [
+    "Dataverse row-level security",
+    "manager hierarchy"
+  ],
+  "commonMistakes": [],
+  "analysisHighlights": {
+    "requirements": [
+      "Store-level data",
+      "Regional managers see region",
+      "Reporting sees all"
+    ],
+    "constraints": []
+  },
+
+  "options": [
+    {
+      "letter": "A",
+      "text": "Account hierarchy",
+      "analysis": "Meant for account entity, not store-based security."
+    },
+    {
+      "letter": "B",
+      "text": "Azure AD security group",
+      "analysis": "Does not handle row-level security within Dataverse by itself."
+    },
+    {
+      "letter": "C",
+      "text": "Manager hierarchy",
+      "analysis": "Allows upward visibility to region managers.",
+      "isCorrect": true
+    },
+    {
+      "letter": "D",
+      "text": "Security roles",
+      "analysis": "Essential for specifying read/write privileges at the correct scope.",
+      "isCorrect": true
+    },
+    {
+      "letter": "E",
+      "text": "Owner teams",
+      "analysis": "Group employees by store or region so they can collectively own records with correct scoping.",
+      "isCorrect": true
+    }
+  ],
+
+  "correctAnswers": ["C","D","E"],
+  "isMultipleChoice": true,
+
+  "detailedExplanation": "Combining manager hierarchy for region managers, plus security roles and owner teams, is a standard solution to limit store employees to their own data while providing region managers and the reporting team broader access.",
+  
+  "category": "Perform solution envisioning and requirement analysis",
+  "weight": 5.2,
+  "examReference": "Configure hierarchical security with roles, teams",
+  "source": "Custom generated",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+}
+,
+{
+  "id": 129,
+  "topic": "General",
+  "type": "specialdragdrop",
+  "text": "DRAG DROP - A company is designing a data migration strategy from multiple sources. They do a test migration and discover issues with some data.\n\nYou need to identify the solution to each issue. Which components do you use?\n\nTo answer, drag solutions to issues. Each solution may be used once, more than once, or not at all.",
+
+  "analysis": "Data type mismatch -> use Power Query transformations. Duplicate records -> define alternate keys or dedup rules. Unexpected null -> default value handling in dataflow or Power Query. etc.",
+  "explanation": "Matches typical dataflow transformations for mismatches, alternate keys for duplicates, default value handling for nulls.",
+
+  "keyWords": [
+    "data migration",
+    "test migration issues",
+    "power query",
+    "alternate keys",
+    "duplicate detection"
+  ],
+  "hints": {
+    "easy": [
+      "Type mismatch => transformations. Duplicates => alternate keys or dedup. Null => default handling."
+    ]
+  },
+  "conceptsTested": [
+    "ETL transformations",
+    "duplicate prevention",
+    "data cleaning"
+  ],
+  "commonMistakes": [],
+  "analysisHighlights": {
+    "requirements": [
+      "map solution to each data issue"
+    ],
+    "constraints": []
+  },
+
+  "requirements": [
+    "Data type mismatch in target column",
+    "Duplicate records are created",
+    "Unexpected null values"
+  ],
+  "choices": [
+    "Use Power Query transformations in a dataflow",
+    "Define alternate keys in Dataverse",
+    "Use default value handling in Power Query",
+    "Run a data quality analysis report",
+    "Implement duplicate detection rules",
+    "Create required fields in Dataverse"
+  ],
+  "correctAnswers": {
+    "Data type mismatch in target column": "Use Power Query transformations in a dataflow",
+    "Duplicate records are created": "Define alternate keys in Dataverse",
+    "Unexpected null values": "Use default value handling in Power Query"
+  },
+
+  "isMultipleChoice": false,
+
+  "detailedExplanation": "Transform data with Power Query if types mismatch, use alternate keys to block duplicates, and handle nulls with default value logic in the dataflow or Power Query steps.",
+  
+  "category": "Perform solution envisioning and requirement analysis",
+  "weight": 5.0,
+  "examReference": "Select correct data migration fixes",
+  "source": "Custom generated",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+}
+,
+{
+  "id": 130,
+  "topic": "Power Apps",
+  "type": "multiplechoice",
+  "text": "You are designing an integration between an Azure SQL database and a model-driven app.\n\nRequirements:\n• Audit updates to data.\n• Assign security role access to tables at user level and at org level.\n• Enable change tracking.\n• Add and update data.\n\nYou need to implement virtual tables.\n\nWhich two requirements can you meet by using virtual tables? Each correct answer is worth one point.",
+
+  "analysis": "Virtual tables do not support native Dataverse auditing or change tracking. Also do not fully support all add/updates. But you can apply Dataverse security roles at user or org scope. So the two feasible are user-level & org-level security role assignment.",
+  "explanation": "Hence B and D: user-level, org-level security role access. The other features (auditing, change tracking, full writes) generally not supported by default for virtual tables.",
+
+  "keyWords": [
+    "virtual tables",
+    "Dataverse",
+    "security role access",
+    "audit"
+  ],
+  "hints": {
+    "easy": [
+      "Security roles can apply to virtual tables. Auditing & change tracking typically do not. Full add/update depends on external source."
+    ]
+  },
+  "conceptsTested": [
+    "virtual table limitations and security"
+  ],
+  "commonMistakes": [],
+  "analysisHighlights": {
+    "requirements": [
+      "user- and org-level security",
+      "audit or change tracking?"
+    ],
+    "constraints": []
+  },
+
+  "options": [
+    {
+      "letter": "A",
+      "text": "Enable change tracking",
+      "analysis": "Typically not supported for external data via virtual tables.",
+      "isCorrect": false
+    },
+    {
+      "letter": "B",
+      "text": "Assign security role access at user level",
+      "analysis": "Yes, Dataverse role-based security can be applied to virtual tables at user scope.",
+      "isCorrect": true
+    },
+    {
+      "letter": "C",
+      "text": "Add and update data",
+      "analysis": "Full create/update is limited or requires external system support. Not guaranteed for typical virtual table usage.",
+      "isCorrect": false
+    },
+    {
+      "letter": "D",
+      "text": "Assign security role access at org level",
+      "analysis": "Yes, you can also set org-level privileges. Virtual tables let you apply same security role definitions.",
+      "isCorrect": true
+    },
+    {
+      "letter": "E",
+      "text": "Audit updates to data",
+      "analysis": "Dataverse auditing doesn't apply to external data behind a virtual table.",
+      "isCorrect": false
+    }
+  ],
+
+  "correctAnswers": ["B","D"],
+  "isMultipleChoice": true,
+
+  "detailedExplanation": "Using virtual tables, you can still leverage Dataverse user-level or organization-level security. However, native Dataverse auditing, change tracking, or guaranteed data writes typically aren’t supported.",
+  
+  "category": "Perform solution envisioning and requirement analysis",
+  "weight": 5.0,
+  "examReference": "Constraints on virtual tables for security vs. auditing",
+  "source": "Custom generated",
+  "examArea": "Solution Envisioning and Requirements (45-50%)"
+}
+,	      
 {
   "id": 302,
   "topic": "Dataverse",
