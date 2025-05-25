@@ -4196,63 +4196,36 @@
     "technologies": []
   },
 
-  "options": [
-    {
-      "source": {
-        "requirement": "Users must be able to add multiple items to a shopping cart",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "The system must handle up to 10,000 concurrent users",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "The checkout process must comply with PCI standards",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "Users can filter products by color or size",
-        "choices": [
-          "Functional requirement",
-          "Non-functional requirement"
-        ]
-      }
-    }
+  "requirements": [
+    "Users must be able to add multiple items to a shopping cart",
+    "The system must handle up to 10,000 concurrent users",
+    "The checkout process must comply with PCI standards",
+    "Users can filter products by color or size"
   ],
 
-  "correctAnswers": [
-    "Users must be able to add multiple items to a shopping cart: Functional requirement",
-    "The system must handle up to 10,000 concurrent users: Non-functional requirement",
-    "The checkout process must comply with PCI standards: Non-functional requirement",
-    "Users can filter products by color or size: Functional requirement"
+  "choices": [
+    "Functional requirement",
+    "Non-functional requirement"
   ],
+
+  "correctAnswers": {
+    "Users must be able to add multiple items to a shopping cart": "Functional requirement",
+    "The system must handle up to 10,000 concurrent users": "Non-functional requirement",
+    "The checkout process must comply with PCI standards": "Non-functional requirement",
+    "Users can filter products by color or size": "Functional requirement"
+  },
   
   "isMultipleChoice": false,
 
   "detailedExplanation": "Features describing how users interact (e.g., adding items to a cart, filtering) are functional requirements. Concurrency limits and PCI compliance are constraints on how the system must operate—making them non-functional.",
-  
+
   "category": "Perform solution envisioning and requirement analysis",
   "weight": 5.0,
   "examReference": "Identify functional vs non-functional in e-commerce scenario",
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
-},
-	      
+}
+,	      
 {
   "id": 44,
   "topic": "Dataverse",
