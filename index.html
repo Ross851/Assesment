@@ -7615,6 +7615,14 @@
   "hints": {
     "easy": [
       "Creating tasks can be user-level for minimal exposure, while assigning cases across the organization requires an organization-level Assign privilege."
+    ],
+    "medium": [
+      "If you pick business unit-level privileges, HR users might not be able to assign cases to users outside their business unit. Make sure the privilege scope fits the requirement to assign to any user in the organization.",
+      "For creating tasks, user-level privileges prevent HR tasks from being exposed to others unnecessarily, meeting a principle of least privilege."
+    ],
+    "hard": [
+      "Remember that 'Assign' privilege scope determines how far a user can assign records. Organization-level means they can assign to any user, even if that user is in a different business unit.",
+      "Confusing the 'Assign' privilege with 'Share' can lead to errors. 'Assign' transfers ownership of the record, whereas 'Share' just grants additional access. In this scenario, you specifically need the ability to 'assign' the case to another user."
     ]
   },
 
@@ -7663,7 +7671,8 @@
   "examReference": "Configure Dataverse security roles for tasks and assignments",
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
-},
+}
+,
 	{
   "id": 89,
   "topic": "General",
