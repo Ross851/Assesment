@@ -5887,33 +5887,22 @@
     "constraints": []
   },
 
-  "options": [
-    {
-      "source": {
-        "requirement": "Retrieve data from the third-party marketing data source.",
-        "choices": [
-          "connector",
-          "dataflow",
-          "virtual table"
-        ]
-      }
-    },
-    {
-      "source": {
-        "requirement": "Retrieve data from the supplier data source.",
-        "choices": [
-          "connector",
-          "dataflow",
-          "virtual table"
-        ]
-      }
-    }
+  "requirements": [
+    "Retrieve data from the third-party marketing data source.",
+    "Retrieve data from the supplier data source."
   ],
 
-  "correctAnswers": [
-    "Retrieve data from the third-party marketing data source: dataflow",
-    "Retrieve data from the supplier data source: connector"
+  "choices": [
+    "connector",
+    "dataflow",
+    "virtual table"
   ],
+
+  "correctAnswers": {
+    "Retrieve data from the third-party marketing data source.": "dataflow",
+    "Retrieve data from the supplier data source.": "connector"
+  },
+
   "isMultipleChoice": false,
 
   "detailedExplanation": "Marketing data that requires transformations and scheduled loads is best ingested via a dataflow. Supplier data that needs immediate or real-time access can use a connector approach, so the system can call the supplier’s service on demand.",
@@ -5923,7 +5912,8 @@
   "examReference": "Select correct data integration approach in Dataverse",
   "source": "Custom generated",
   "examArea": "Solution Envisioning and Requirements (45-50%)"
-},   
+}
+   
 	      {
   "id": 66,
   "topic": "General",
